@@ -5,7 +5,7 @@ a list with lists of the integer values of the inputs
 '''
 input_list = []
 
-with open("../input/inputday3.txt") as f:
+with open("../input/inputday3.txt") as f:#../input/inputday3.txt
     for line in f:
         l = line.strip()
         j = l[1:]
@@ -15,7 +15,6 @@ with open("../input/inputday3.txt") as f:
         new_entry = [int(x) for x in j.split(',')]
 
         input_list.append(new_entry)
-
 
 locations = {(0,0):1}
 max_width = 0
@@ -37,7 +36,29 @@ print('max width: ', max_width)
 
 fabric_array = [['.' for x in range(max_height)] for y in range(max_width)]
 
+for i in input_list:
+    for x in range(i[1],i[1]+i[3]):
+        for y in range(i[2], i[2] + i[4]):
+            if fabric_array[x][y]  == '.':
+                fabric_array[x][y] = i[0]
+            else:
+                fabric_array[x][y] = 'x'
+
 for i in fabric_array:
     print(i)
 
-print(fabric_array[0][0])
+square_inches = sum(x.count('x') for x in fabric_array)
+
+found_id = -1
+
+for i in input_list:
+    other_count = 0
+    for x in range(i[1],i[1]+i[3]):
+        for y in range(i[2], i[2] + i[4]):
+            if fabric_array[x][y] != i[0]:
+                other_count += 1
+    if other_count == 0:
+        found_id = i[0]
+
+print(square_inches)
+print(found_id)
