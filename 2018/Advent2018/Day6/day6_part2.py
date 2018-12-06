@@ -1,10 +1,9 @@
 import operator
 from collections import Counter
 input_list = []
-with open("test.txt") as f:#Test File
-max_distance = 32
-# max_distance = 10000
-# with open("../input/inputday6.txt") as f:#Input File
+# with open("test.txt") as f:#Test File
+
+with open("../input/inputday6.txt") as f:#Input File
     for line in f:
         l = line.strip().split(", ")
         # l[0],l[1] = int(l[0]), int(l[1])
@@ -12,8 +11,10 @@ max_distance = 32
         pt = (int(l[0]), int(l[1]))
 
         input_list.append(pt)
-#
-# print(input_list)
+
+# max_distance = 32
+max_distance = 10000
+print(input_list)
 # print(len(input_list))
 
 # find the largest x and y
@@ -69,33 +70,28 @@ def manhattan_distance(pt1, pt2):
 # print(manhattan_distance(input_list[0],input_list[1]))
 
 
-# finding occurances of min distance
-def check_min_num_occurances(val,dist):
-    counter = 0
-    # print("searching for:",val)
-    for i in dist:
-        # print(dist[i])
-        if dist[i] == val:
-            # print(dist[i])
-            counter+=1
-            if counter > 1:
-                return True
-    return False
+under_max_dist_count = 0
 
-# calculate distances to each location from each cell
+# find the sum of 
 for i in range(len(locations_grid)):
     for j in range(len(locations_grid[i])):
-        # print(i,j)
-        if locations_grid[i][j] == '!':
-            # print(i,j,locations_grid[i][j])
-            distances = {}
-            for z in letter_point:
-                distances[z] = manhattan_distance((j,i), z)
-            min_dist = min(distances.items(), key = operator.itemgetter(1))
-            # print(min_dist)
-            locations_grid[i][j] = distances
-            if check_min_num_occurances(min_dist[1],distances):
-                locations_grid[i][j] = '.'
-            else:
-                locations_grid[i][j] = letter_point[min_dist[0]]#.lower()
-        
+        dist = 0
+        for z in input_list:
+            dist += manhattan_distance((j,i),z)
+        locations_grid[i][j] = dist
+        if dist < max_distance:
+            under_max_dist_count+=1
+        # # print(i,j)
+        # if locations_grid[i][j] == '!':
+        #     # print(i,j,locations_grid[i][j])
+        #     distances = {}
+        #     for z in letter_point:
+        #         distances[z] = manhattan_distance((j,i), z)
+        #     min_dist = min(distances.items(), key = operator.itemgetter(1))
+        #     # print(min_dist)
+        #     locations_grid[i][j] = distances
+
+for i in locations_grid:
+    print(i)
+
+print(under_max_dist_count)
