@@ -1,8 +1,10 @@
 import operator
 from collections import Counter
 input_list = []
-# with open("test.txt") as f:#Test File
-with open("../input/inputday6.txt") as f:#Input File
+with open("test.txt") as f:#Test File
+max_distance = 32
+# max_distance = 10000
+# with open("../input/inputday6.txt") as f:#Input File
     for line in f:
         l = line.strip().split(", ")
         # l[0],l[1] = int(l[0]), int(l[1])
@@ -26,9 +28,11 @@ letter_representations = letter_representations + [chr(i)+chr(i) for i in range(
 
 out = ''
 
+# Make a list of letters mapped to coordinates
 letter_point = {input_list[i]:letter_representations[i] for i in range(len(input_list))}# (x,y):Letter
 # print(letter_point)
 
+#Place letters where they go, ! place holder
 for y in range(max_y+2):
     locations_grid.append([])
     for x in range(max_x+2):
@@ -64,6 +68,8 @@ def manhattan_distance(pt1, pt2):
 # print(input_list[0],input_list[1])
 # print(manhattan_distance(input_list[0],input_list[1]))
 
+
+# finding occurances of min distance
 def check_min_num_occurances(val,dist):
     counter = 0
     # print("searching for:",val)
@@ -76,6 +82,7 @@ def check_min_num_occurances(val,dist):
                 return True
     return False
 
+# calculate distances to each location from each cell
 for i in range(len(locations_grid)):
     for j in range(len(locations_grid[i])):
         # print(i,j)
@@ -91,48 +98,4 @@ for i in range(len(locations_grid)):
                 locations_grid[i][j] = '.'
             else:
                 locations_grid[i][j] = letter_point[min_dist[0]]#.lower()
-            # check_min_num_occurances(min_dist[1],distances)
-            # locations_grid[i][j] = letter_point[min_dist[0]].lower()
-
-for i in locations_grid:
-    print(i)
-
-infinite_list = []
-#top
-for i in locations_grid[0]:
-    # print(i)
-    if i not in infinite_list and i != '.':
-        infinite_list.append(i)
-#bottom
-for i in locations_grid[len(locations_grid)-1]:
-    # print(i)
-    if i not in infinite_list and i != '.':
-        infinite_list.append(i)
-#right
-for i in locations_grid:
-    # print(i)
-    if i[len(i)-1] not in infinite_list and i[len(i)-1] != '.':
-        infinite_list.append(i[len(i)-1])
-#left
-for i in locations_grid:
-    if i[0] not in infinite_list and i[0] != '.':
-        infinite_list.append(i[0])
-
-print(infinite_list)
-
-areas = {}
-for i in range(len(locations_grid)):
-    for j in range(len(locations_grid[i])):
-        # print(i,j)
-        cur_val = locations_grid[i][j]
-        if cur_val not in infinite_list and cur_val != '.':
-            # print(locations_grid[i][j],"is Naughty!")
-            # print(cur_val)
-            if cur_val not in areas.keys():
-                areas[cur_val] = 1
-            else:
-                areas[cur_val] += 1
-# for i in areas:
-#     print(areas,":",areas[i])
-max_area = max(areas.items(), key = operator.itemgetter(1))
-print("max area:",max_area)
+        
