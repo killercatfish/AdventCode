@@ -6,8 +6,8 @@
 # marbles = 1618
 # players = 10
 '''test 3''' #Issue with this test.  Too Low
-marbles = 7999
-players = 13
+# marbles = 7999
+# players = 13
 '''test 4'''
 # marbles = 1104
 # players = 17
@@ -19,14 +19,14 @@ players = 13
 # players = 30
 '''input''' #Test 1 got 419420 was too low
 # marbles = 70953
-# players = 405
-
+players = 405
+marbles = 7095300
 
 player_turn = 0
 
 current = 0
 marble_list = [[0]]
-print('%-*s%-*s' % (5,'[-]',5,'('+str(marble_list[0][0])+')'))
+# print('%-*s%-*s' % (5,'[-]',5,'('+str(marble_list[0][0])+')'))
 
 player_scores = {}
 for i in range(1,players+1):
@@ -55,11 +55,13 @@ for i in range(1,marbles+1):
         prev = marble_list[len(marble_list) - 1]
         player_scores[player_turn] += i
         next_index = prev_index - 7
+        if next_index < 0: #Feck, forgot these two lines,
+            next_index = len(prev) + next_index
         # print(next_index)
         prev_index = next_index
         player_scores[player_turn] += prev.pop(next_index)
         marble_list.append(prev)
-        print(player_scores[player_turn])
+        # print(player_scores[player_turn])
 
     else:
         prev = marble_list[len(marble_list)-1]
@@ -80,7 +82,7 @@ for i in range(1,marbles+1):
 
     # print_list(prev,prev_index,player_turn)
 
-for i in player_scores:
-    print(i,':',player_scores[i])
+# for i in player_scores:
+    # print(i,':',player_scores[i])
 
 print('max:',max(player_scores.values()))
