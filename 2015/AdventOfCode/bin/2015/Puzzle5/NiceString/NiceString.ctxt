@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=input
+comment0.target=boolean\ isNice(java.lang.String)
+comment1.params=input
+comment1.target=boolean\ checkVowels(java.lang.String)
+comment2.params=c
+comment2.target=boolean\ isVowel(char)
+comment3.params=input
+comment3.target=boolean\ checkDouble(java.lang.String)
+comment4.params=input
+comment4.target=boolean\ checkDisallowed(java.lang.String)
+comment5.params=inputs
+comment5.target=int\ countNice(java.lang.String)
+comment6.params=
+comment6.target=void\ test()
+numComments=7

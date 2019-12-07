@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=
+comment0.target=HouseVisits()
+comment1.params=directions
+comment1.target=void\ calcHouses(java.lang.String)
+comment2.params=current\ location
+comment2.target=java.lang.String\ updateKey(java.lang.String,\ int[])
+comment3.params=
+comment3.target=void\ printHouses()
+comment4.params=
+comment4.target=int\ getSize()
+comment5.params=directions
+comment5.target=void\ splitHouses(java.lang.String)
+numComments=6

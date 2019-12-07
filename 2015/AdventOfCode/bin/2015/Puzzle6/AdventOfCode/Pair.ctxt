@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=l\ r
+comment0.target=Pair(int,\ int)
+comment1.params=
+comment1.target=int\ getX()
+comment2.params=
+comment2.target=int\ getY()
+comment3.params=l
+comment3.target=void\ setX(int)
+comment4.params=r
+comment4.target=void\ setY(int)
+comment5.params=
+comment5.target=int\ hashCode()
+comment6.params=obj
+comment6.target=boolean\ equals(java.lang.Object)
+numComments=7

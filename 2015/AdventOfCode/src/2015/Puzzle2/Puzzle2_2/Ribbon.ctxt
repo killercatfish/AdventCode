@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=rectangle
+comment0.target=int\ ribbon(java.lang.String)
+comment1.params=rectangle
+comment1.target=int[]\ getDimensions(java.lang.String)
+comment2.params=content
+comment2.target=int\ getSum(java.lang.String)
+comment3.params=
+comment3.target=void\ testRibbon()
+numComments=4

@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.params=len\ wid
+comment0.target=Rectangle2(int,\ int)
+comment1.params=
+comment1.target=void\ reset()
+comment2.params=
+comment2.target=void\ printStatus()
+comment3.params=srt\ nd
+comment3.target=void\ toggleRect(Pair,\ Pair)
+comment4.params=srt\ nd
+comment4.target=void\ turnOffRect(Pair,\ Pair)
+comment5.params=srt\ nd
+comment5.target=void\ turnOnRect(Pair,\ Pair)
+comment6.params=pt
+comment6.target=void\ toggle(Pair)
+comment7.params=pt
+comment7.target=void\ turnOn(Pair)
+comment8.params=pt
+comment8.target=void\ turnOff(Pair)
+comment9.params=
+comment9.target=int\ getNumLit()
+numComments=10

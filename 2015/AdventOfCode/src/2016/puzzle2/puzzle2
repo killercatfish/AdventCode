@@ -1,0 +1,20 @@
+def build_list(filename):
+	f = open(filename, 'rU')
+	s = f.read()
+	
+	
+	
+def main():
+  # This command-line parsing code is provided.
+  # Make a list of command line arguments, omitting the [0] element
+  # which is the script itself.
+  args = sys.argv[1:]
+
+  if not args:
+    print 'usage: [List of directions]'
+    sys.exit(1)
+
+  get_location(args)
+  
+if __name__ == '__main__':
+  main()
