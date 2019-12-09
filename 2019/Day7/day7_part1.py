@@ -6,7 +6,7 @@ AoC 2019 7.1
 def get_input(file_name):
     input = []
 
-    with open(f'input/{file_name}.txt'.format(file_name, 'wb')) as f:
+    with open(f'../input/{file_name}.txt'.format(file_name, 'wb')) as f:
         # with open("input/day5_test_input.txt") as f:
         #     input = f.split(',')
         for line in f:
@@ -17,7 +17,7 @@ def get_input(file_name):
 
 from Intcode import Int_Code_Computer
 
-input = get_input('../input/day_7_input')
+input = get_input('day_7_input')
 
 from itertools import permutations
 codes = [0, 1, 2, 3, 4]

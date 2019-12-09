@@ -3,7 +3,7 @@ class Int_Code_Computer():
         self.instructions = []
         self.input = input.copy()
         self.instructions_index = 0
-        self.output = ""
+        self.output = []
         self.command_index = 0
         self.mode = mode # 0 not loop, 1 for loop
 
@@ -69,7 +69,7 @@ class Int_Code_Computer():
     def run_op_4(self, command, input):
         val = self.get_op_3_4_val(command[1], input)
         # print(input[val])
-        self.output += str(input[val])
+        self.output.append(str(input[val]))
 
     def run_op_5(self, command, input):
         vals = self.get_all_values(command, input)
@@ -99,8 +99,8 @@ class Int_Code_Computer():
         else:
             input[vals[2]] = 0
 
-    # run command, return new index
-    # def run_command(input, )
+    def get_last_output(self):
+        return self.output[len(self.output)-1]
 
     # Solve the Puzzle
     def solve_puzzle(self, instructions):
@@ -162,4 +162,4 @@ class Int_Code_Computer():
         # print(self.output)
         self.input = input
 
-        return (self.output, previous_command)
+        return (self.output[len(self.output)-1], previous_command)
