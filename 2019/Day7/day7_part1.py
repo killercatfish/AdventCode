@@ -30,10 +30,10 @@ for i in perms:
     # print("Perm: " + str(i))
     result = 0
     for j in range(len(i)):
-        int_comp = Int_Code_Computer(input.copy())
+        int_comp = Int_Code_Computer(input.copy(), 0)
         instructions = [i[j], int(result)]
 
-        result = int_comp.solve_puzzle(instructions)
+        result = int_comp.solve_puzzle(instructions)[0]
     signals.append(int(result))
     run += 1
 
