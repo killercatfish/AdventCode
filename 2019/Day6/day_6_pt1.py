@@ -14,7 +14,7 @@ def get_input(file_name):
 
     return input
 
-input = get_input('day_9_input')
+input = get_input('day_6_input')
 print(input)
 total = 0
 for key in input:

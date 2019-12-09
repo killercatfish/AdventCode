@@ -25,7 +25,7 @@ def path_to_com(key):
     return path
 
 
-input = get_input('day_9_input')
+input = get_input('day_6_input')
 
 # print(input)
 # total = 0
